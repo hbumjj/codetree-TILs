@@ -36,5 +36,8 @@ for depth in range(min_, max_):
         group+=1
     
     answer = max(answer, group)
+    
+    if answer >= len(arr):
+        break;
 
 print(answer)
