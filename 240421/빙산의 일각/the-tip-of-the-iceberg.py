@@ -18,7 +18,7 @@ for i in range(N):
 
 answer = 0
 
-for depth in range(min_, max_):
+for depth in range(max_, min_):
     group = 0
     flag = False
     for f in arr: # 깊이에 따른 그룹
@@ -37,7 +37,7 @@ for depth in range(min_, max_):
     
     answer = max(answer, group)
     
-    if answer >= len(arr)/2:
+    if answer >= len(arr)/2: # 최소한 그룹이어야 하므로 절반보다 그룹이 많을 수 없다.
         break;
 
 print(answer)
