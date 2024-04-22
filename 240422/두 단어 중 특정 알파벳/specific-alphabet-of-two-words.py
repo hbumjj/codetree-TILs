@@ -25,31 +25,19 @@ dic = {'a': 0,
        'y': 0,
        'z': 0,}
 
-
-# a = "fox box"
-
-# ss = list(a.split(" "))
-# co = []
-# for s in ss:
-#     for i in range(len(s)):
-#         if s[i] not in co:
-#             dic[s[i]] +=1
-#             co.append(s[i])
-#         elif s[i] in co:
-#             pass
-
-
 N = int(input())
 for i in range(N):
     ss = list(input().split(" "))
     co = []
     for s in ss:
+        co_2 = []
         for i in range(len(s)):
             if s[i] not in co:
                 dic[s[i]] +=1
-                co.append(s[i])
+                co_2.append(s[i])
             elif s[i] in co:
                 pass
+        co.extend(co_2)
 
 
 for x in list(dic.values()):
