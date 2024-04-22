@@ -25,20 +25,38 @@ dic = {'a': 0,
        'y': 0,
        'z': 0,}
 
+
 N = int(input())
 for i in range(N):
     ss = list(input().split(" "))
-    co = []
-    for s in ss:
-        co_2 = []
-        for i in range(len(s)):
-            if s[i] not in co:
-                dic[s[i]] +=1
-                co_2.append(s[i])
-            elif s[i] in co:
-                pass
-        co.extend(co_2)
-
+    
+    dic1 = {}
+    dic2 = {}
+    
+    for i in range(len(ss[0])):
+        if ss[0][i] not in dic1:
+            dic1[ss[0][i]] = 1
+        else:
+            dic1[ss[0][i]] +=1
+    
+    for j in range(len(ss[1])):
+        if ss[1][j] not in dic2:
+            dic2[ss[1][j]] = 1
+        else:
+            dic2[ss[1][j]] +=1
+    
+    # 합치는 과정
+    for f in dic2:
+        if f not in dic1: # 없을 경우에는
+            dic1[f] = dic2[f]
+        
+        elif f in dic1:
+            if dic2[f] > dic1[f]:
+                dic1[f] = dic2[f]
+    
+    # 개수 추가하기
+    for f_2 in dic1:
+        dic[f_2] += dic1[f_2]
 
 for x in list(dic.values()):
     print(x)
